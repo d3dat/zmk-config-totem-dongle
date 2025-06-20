@@ -3,7 +3,7 @@
 //                                                        ▄▀▀▀▄  ▄  ▄▀▀▀▄  ▄  ▄▀▀▀▄  █  ▄▀▀▀▄
 //                                                        █   █  █  █   █  █  █   █  █  █   █
 //                                                         ▀▀▀   █   ▀▀▀   █   ▀▀▀   ▀   ▀▀▀
-//                                                               █      ▄▄▄█▄▄▄    █   █  
+//                                                               █      ▄▄▄█▄▄▄    █   █
 //                                                               ▀      █  █  █     █▄█
 //                                                             ▀▀▀▀▀    █  █  █      ▀
 //                                                                      ▀  ▀  ▀
@@ -45,9 +45,216 @@
             global-quick-tap;
             bindings = <&kp>, <&kp>;
         };
+
+        num_word: num_word {
+            compatible = "zmk,behavior-auto-layer";
+            #binding-cells = <1>;
+            continue-list = <BSPC DEL DOT COMMA PLUS MINUS STAR FSLH EQUAL>;
+            ignore-numbers;
+        };
+
+        mm_comma: mm_comma {
+            compatible = "zmk,behavior-mod-morph";
+            label = "MM_COMMA";
+            bindings = <&macro_comma>, <&kp SEMI>;
+
+            #binding-cells = <0>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+
+        mm_comma_ru: mm_comma_ru {
+            compatible = "zmk,behavior-mod-morph";
+            label = "MM_COMMA_RU";
+            bindings = <&macro_comma_ru>, <&kp SEMI>;
+
+            #binding-cells = <0>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+
+        mm_dot: mm_dot {
+            compatible = "zmk,behavior-mod-morph";
+            label = "MM_DOT";
+            bindings = <&macro_dot>, <&kp LS(SEMI)>;
+
+            #binding-cells = <0>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+
+        mm_dot_ru: mm_dot_ru {
+            compatible = "zmk,behavior-mod-morph";
+            label = "MM_DOT_RU";
+            bindings = <&macro_dot_ru>, <&kp LS(SEMI)>;
+
+            #binding-cells = <0>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+
+        mm_minus: mm_minus {
+            compatible = "zmk,behavior-mod-morph";
+            label = "MM_MINUS";
+            bindings = <&kp MINUS>, <&kp MINUS>;
+
+            #binding-cells = <0>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+
+        swap_win: swapper_win {
+            compatible = "zmk,behavior-tri-state";
+            label = "SWAPPER_WIN";
+            #binding-cells = <0>;
+            bindings = <&kt LALT>, <&kp TAB>, <&kt LALT>;
+
+            ignored-key-positions = <13>;
+        };
+
+        swap_tab: swapper_tab {
+            compatible = "zmk,behavior-tri-state";
+            label = "SWAPPER_TAB";
+            #binding-cells = <0>;
+            bindings = <&kt LCTRL>, <&kp TAB>, <&kt LCTRL>;
+
+            ignored-key-positions = <13>;
+        };
     };
 
-    combos { compatible = "zmk,combos"; };
+    macros {
+        macro_comma: macro_comma {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp COMMA &kp SPACE>;
+            label = "MACRO_COMMA";
+        };
+
+        macro_comma_ru: macro_comma_ru {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LS(SLASH) &kp SPACE>;
+            label = "MACRO_COMMA_RU";
+        };
+
+        macro_dot: macro_dot {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp DOT &kp SPACE &sk LSHFT>;
+            label = "MACRO_DOT";
+        };
+
+        macro_dot_ru: macro_dot_ru {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp SLASH &kp SPACE &sk LSHFT>;
+            label = "MACRO_DOT_RU";
+        };
+
+        macro_lng: macro_lng {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp CAPS &tog 2>;
+            label = "MACRO_LNG";
+        };
+
+        macro_lng_en: macro_lng_sync {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp CAPS &to 0>;
+            label = "MACRO_LNG_SYNC";
+        };
+
+        macro_lt: macro_lt {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp CAPS &kp LS(COMMA) &kp CAPS>;
+            label = "MACRO_LT";
+        };
+
+        macro_gt: macro_gt {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp CAPS &kp LS(DOT) &kp CAPS>;
+            label = "MACRO_GT";
+        };
+    };
+
+    combos {
+        compatible = "zmk,combos";
+
+        combo_lng_l {
+            bindings = <&macro_lng>;
+            key-positions = <16 4>;
+        };
+
+        combo_lng_r {
+            bindings = <&macro_lng>;
+            key-positions = <19 7>;
+        };
+
+        combo_esc {
+            bindings = <&kp ESC>;
+            key-positions = <15 3>;
+        };
+
+        combo_ret {
+            bindings = <&kp RET>;
+            key-positions = <19 31>;
+        };
+
+        combo_bspc {
+            bindings = <&kp BACKSPACE>;
+            key-positions = <18 19>;
+        };
+
+        combo_spc {
+            bindings = <&kp SPACE>;
+            key-positions = <16 28>;
+        };
+
+        combo_num_word_en {
+            bindings = <&num_word 4>;
+            key-positions = <8 20>;
+            layers = <0>;
+        };
+
+        combo_caps_word {
+            bindings = <&caps_word>;
+            key-positions = <21 9>;
+        };
+
+        combo_ins {
+            bindings = <&kp INS>;
+            key-positions = <18 30>;
+        };
+
+        combo_mouse_l {
+            bindings = <&tog 9>;
+            key-positions = <5 17>;
+        };
+
+        combo_mouse_r {
+            bindings = <&tog 9>;
+            key-positions = <6 18>;
+        };
+
+        combo_num_ru {
+            bindings = <&num_word 5>;
+            key-positions = <8 20>;
+            layers = <2>;
+        };
+
+        combo_lbkt {
+            bindings = <&kp LBKT>;
+            key-positions = <10 9>;
+        };
+
+        combo_sqt {
+            bindings = <&kp SQT>;
+            key-positions = <21 22>;
+        };
+
+        combo_rbkt {
+            bindings = <&kp RBKT>;
+            key-positions = <33 34>;
+        };
+    };
 
     keymap {
         compatible = "zmk,keymap";
@@ -64,9 +271,9 @@
 
         ext {
             bindings = <
-        &kp GRAVE       &kp BACKSPACE   &kp ESC          &kp DEL          &trans    &kp TAB        &kp HOME  &kp PG_UP  &kp PG_DN  &kp END
-        &hm LGUI LC(A)  &hm LALT LC(S)  &hm LCTRL LC(D)  &hm LSHFT LC(F)  &trans    &kp BACKSPACE  &kp LEFT  &kp UP     &kp DOWN   &kp RIGHT
-&trans  &kp LC(Z)       &kp LC(X)       &kp LC(C)        &kp LC(V)        &trans    &kp DEL        &kp RET   &trans     &trans     &trans     &trans
+        &kp GRAVE       &kp BACKSPACE   &kp ESC          &kp DEL          &kp CAPS  &kp TAB        &kp HOME  &kp PG_UP  &kp PG_DN  &kp END
+        &hm LGUI LC(A)  &hm LALT LC(S)  &hm LCTRL LC(D)  &hm LSHFT LC(F)  &swap_win &kp BACKSPACE  &kp LEFT  &kp UP     &kp DOWN   &kp RIGHT
+&trans  &kp LC(Z)       &kp LC(X)       &kp LC(C)        &kp LC(V)        &swap_tab &kp DEL        &kp RET   &mm_comma  &mm_dot    &mm_minus  &trans
                                         &trans           &trans           &trans    &trans         &trans    &trans
             >;
         };
