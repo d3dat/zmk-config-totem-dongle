@@ -289,9 +289,9 @@
 
         ru_ext {
             bindings = <
-        &kp GRAVE       &kp BACKSPACE   &kp ESC          &kp DEL          &kp CAPS     &kp TAB        &kp HOME  &kp PG_UP     &kp PG_DN     &kp END
-        &hm LGUI LC(A)  &hm LALT LC(S)  &hm LCTRL LC(D)  &hm LSHFT LC(F)  &swap_win    &kp BACKSPACE  &kp LEFT  &kp UP        &kp DOWN      &kp RIGHT
-&trans  &kp LC(Z)       &kp LC(X)       &kp LC(C)        &kp LC(V)        &swap_tab    &kp DEL        &kp RET   &mm_comma_ru  &mm_dot_ru    &mm_minus_ru  &trans
+        &kp GRAVE       &kp BACKSPACE   &kp ESC          &kp DEL          &kp CAPS     &kp TAB        &kp HOME  &kp PG_UP     &kp PG_DN   &kp END
+        &hm LGUI LC(A)  &hm LALT LC(S)  &hm LCTRL LC(D)  &hm LSHFT LC(F)  &swap_win    &kp BACKSPACE  &kp LEFT  &kp UP        &kp DOWN    &kp RIGHT
+&trans  &kp LC(Z)       &kp LC(X)       &kp LC(C)        &kp LC(V)        &swap_tab    &kp DEL        &kp RET   &mm_comma_ru  &mm_dot_ru  &mm_minus  &trans
                                         &trans           &trans           &trans       &trans         &trans    &trans
             >;
         };
