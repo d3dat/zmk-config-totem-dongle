@@ -149,7 +149,7 @@
         macro_lng: macro_lng {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&kp CAPS &tog 2>;
+            bindings = <&kp CAPS &tog 15>;
             label = "MACRO_LNG";
         };
 
@@ -180,79 +180,79 @@
 
         combo_lng_l {
             bindings = <&macro_lng>;
-            key-positions = <16 4>;
+            key-positions = <3 13>;
         };
 
         combo_lng_r {
             bindings = <&macro_lng>;
-            key-positions = <19 7>;
+            key-positions = <6 16>;
         };
 
         combo_esc {
             bindings = <&kp ESC>;
-            key-positions = <15 3>;
+            key-positions = <2 12>;
         };
 
         combo_ret {
             bindings = <&kp RET>;
-            key-positions = <19 31>;
+            key-positions = <16 27>;
         };
 
         combo_bspc {
             bindings = <&kp BACKSPACE>;
-            key-positions = <18 19>;
+            key-positions = <15 16>;
         };
 
         combo_spc {
             bindings = <&kp SPACE>;
-            key-positions = <16 28>;
+            key-positions = <13 24>;
         };
 
         combo_num_word_en {
             bindings = <&num_word 4>;
-            key-positions = <8 20>;
+            key-positions = <7 17>;
             layers = <0>;
         };
 
         combo_caps_word {
             bindings = <&caps_word>;
-            key-positions = <21 9>;
+            key-positions = <8 18>;
         };
 
         combo_ins {
             bindings = <&kp INS>;
-            key-positions = <18 30>;
+            key-positions = <15 26>;
         };
 
         combo_mouse_l {
-            bindings = <&tog 9>;
-            key-positions = <5 17>;
+            bindings = <&tog 3>;
+            key-positions = <3 4>;
         };
 
         combo_mouse_r {
-            bindings = <&tog 9>;
-            key-positions = <6 18>;
+            bindings = <&tog 3>;
+            key-positions = <6 5>;
         };
 
-        combo_num_ru {
+        combo_num_word_ru {
             bindings = <&num_word 5>;
-            key-positions = <8 20>;
-            layers = <2>;
+            key-positions = <17 7>;
+            layers = <15>;
         };
 
         combo_lbkt {
             bindings = <&kp LBKT>;
-            key-positions = <10 9>;
+            key-positions = <9 8>;
         };
 
         combo_sqt {
             bindings = <&kp SQT>;
-            key-positions = <21 22>;
+            key-positions = <18 19>;
         };
 
         combo_rbkt {
             bindings = <&kp RBKT>;
-            key-positions = <33 34>;
+            key-positions = <29 30>;
         };
     };
 
@@ -264,17 +264,125 @@
             bindings = <
        &kp Q       &kp W       &kp E        &kp R         &kp T      &kp Y    &kp U        &kp I        &kp O       &kp P
        &hm LGUI A  &hm LALT S  &hm LCTRL D  &hm LSHIFT F  &kp G      &kp H    &hm LSHFT J  &hm LCTRL K  &hm LALT L  &hm LGUI SEMICOLON
-&none  &kp Z       &kp X       &kp C        &kp V         &kp B      &kp N    &kp M        &kp COMMA    &kp DOT     &kp SLASH           &none
-                               &mo 7        &lt 1 SPACE   &kp ESC    &kp RET  &none        &mo 7
+&none  &kp Z       &lt 8 X     &lt 4 C      &lt 6 V       &kp B      &kp N    &kp M        &kp COMMA    &kp DOT     &kp SLASH           &none
+                               &mo 13       &lt 1 SPACE   &kp ESC    &kp RET  &mo 9        &mo 13
             >;
         };
 
         ext {
             bindings = <
-        &kp GRAVE       &kp BACKSPACE   &kp ESC          &kp DEL          &kp CAPS  &kp TAB        &kp HOME  &kp PG_UP  &kp PG_DN  &kp END
-        &hm LGUI LC(A)  &hm LALT LC(S)  &hm LCTRL LC(D)  &hm LSHFT LC(F)  &swap_win &kp BACKSPACE  &kp LEFT  &kp UP     &kp DOWN   &kp RIGHT
-&trans  &kp LC(Z)       &kp LC(X)       &kp LC(C)        &kp LC(V)        &swap_tab &kp DEL        &kp RET   &mm_comma  &mm_dot    &mm_minus  &trans
-                                        &trans           &trans           &trans    &trans         &trans    &trans
+        &kp GRAVE       &kp BACKSPACE   &kp ESC          &kp DEL          &kp CAPS     &kp TAB        &kp HOME  &kp PG_UP  &kp PG_DN  &kp END
+        &hm LGUI LC(A)  &hm LALT LC(S)  &hm LCTRL LC(D)  &hm LSHFT LC(F)  &swap_win    &kp BACKSPACE  &kp LEFT  &kp UP     &kp DOWN   &kp RIGHT
+&trans  &kp LC(Z)       &kp LC(X)       &kp LC(C)        &kp LC(V)        &swap_tab    &kp DEL        &kp RET   &mm_comma  &mm_dot    &mm_minus  &trans
+                                        &trans           &trans           &trans       &trans         &trans    &trans
+            >;
+        };
+
+        ru {
+            bindings = <
+        &trans  &trans  &trans   &trans       &trans    &trans  &trans  &trans  &trans  &trans
+        &trans  &trans  &trans   &trans       &trans    &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &lt 5 C  &lt 7 V      &trans    &trans  &trans  &trans  &trans  &trans  &trans
+                        &trans   &lt 3 SPACE  &trans    &trans  &trans  &trans
+            >;
+        };
+
+        ru_ext {
+            bindings = <
+        &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans
+        &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans
+                        &trans  &trans  &trans    &trans  &trans  &trans
+            >;
+        };
+
+        num {
+            bindings = <
+        &trans  &trans  &trans  &trans  &trans    &kp SLASH  &kp N9  &kp N0  &kp MINUS  &kp EQUAL
+        &trans  &trans  &trans  &trans  &trans    &kp DOT    &kp N5  &kp N6  &kp N7     &kp N8
+&trans  &trans  &trans  &trans  &trans  &trans    &kp COMMA  &kp N1  &kp N2  &kp N3     &kp N4     &trans
+                        &trans  &trans  &trans    &trans     &trans  &trans
+            >;
+        };
+
+        num_ru {
+            bindings = <
+        &trans  &trans  &trans  &trans  &trans    &kp LS(BACKSLASH)  &kp N9  &kp N0  &kp MINUS  &kp EQUAL
+        &trans  &trans  &trans  &trans  &trans    &kp SLASH          &kp N5  &kp N6  &kp N7     &kp N8
+&trans  &trans  &trans  &trans  &trans  &trans    &kp LS(SLASH)      &kp N1  &kp N2  &kp N3     &kp N4     &trans
+                        &trans  &trans  &trans    &trans             &trans  &trans
+            >;
+        };
+
+        sym {
+            bindings = <
+        &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans
+        &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans
+                        &trans  &trans  &trans    &trans  &trans  &trans
+            >;
+        };
+
+        sym_ru {
+            bindings = <
+        &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans
+        &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans
+                        &trans  &trans  &trans    &trans  &trans  &trans
+            >;
+        };
+
+        fn {
+            bindings = <
+        &trans    &trans    &trans     &trans     &trans    &trans  &kp F9  &kp F10  &kp F11  &kp F12
+        &kp LGUI  &kp LALT  &kp LCTRL  &kp LSHFT  &trans    &trans  &kp F5  &kp F6   &kp F7   &kp F8
+&trans  &trans    &trans    &trans     &trans     &trans    &trans  &kp F1  &kp F2   &kp F3   &kp F4   &trans
+                            &trans     &trans     &trans    &trans  &trans  &trans
+            >;
+        };
+
+        mouse {
+            bindings = <
+        &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans
+        &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans
+                        &trans  &trans  &trans    &trans  &trans  &trans
+            >;
+        };
+
+        mouse_ext {
+            bindings = <
+        &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans
+        &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans
+                        &trans  &trans  &trans    &trans  &trans  &trans
+            >;
+        };
+
+        multi {
+            bindings = <
+        &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans
+        &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans
+                        &trans  &trans  &trans    &trans  &trans  &trans
+            >;
+        };
+
+        multi_ext {
+            bindings = <
+        &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans
+        &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans
+                        &trans  &trans  &trans    &trans  &trans  &trans
+            >;
+        };
+
+        sys {
+            bindings = <
+             &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans
+             &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans
+&bootloader  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &bootloader
+                             &trans  &trans  &trans    &trans  &trans  &trans
             >;
         };
 
@@ -301,7 +409,7 @@
         Fun {
             display-name = "Fun";
             bindings = <
-        &bootloader  &trans  &trans  &trans  &to 5     &trans  &trans  &trans  &kp END  &kp F1
+        &bootloader  &trans  &trans  &trans  &to 17    &trans  &trans  &trans  &kp END  &kp F1
         &trans       &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans   &kp F10
 &trans  &trans       &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans   &kp F20  &kp F7
                              &trans  &trans  &trans    &trans  &trans  &trans
@@ -311,7 +419,7 @@
         Gaming {
             display-name = "Game";
             bindings = <
-            &kp Z           &kp X  &kp C      &kp V         &sl 6     &trans  &trans  &trans  &trans  &trans
+            &kp Z           &kp X  &kp C      &kp V         &sl 18    &trans  &trans  &trans  &trans  &trans
             &kp TAB         &kp Q  &kp W      &kp E         &kp R     &trans  &trans  &trans  &trans  &trans
 &kp ESCAPE  &kp LEFT_SHIFT  &kp A  &kp S      &kp D         &kp F     &trans  &trans  &trans  &trans  &trans  &trans
                                    &kp LCTRL  &kp LEFT_ALT  &trans    &trans  &trans  &trans
@@ -325,15 +433,6 @@
         &kp L    &kp O         &kp Y         &kp K         &kp G     &kp F5         &kp F7         &trans  &trans  &kp F12
 &trans  &to 0    &trans        &trans        &trans        &trans    &trans         &trans         &trans  &trans  &kp F22          &kp LA(F4)
                                &kp J         &kp I         &kp M     &trans         &trans         &trans
-            >;
-        };
-
-        sys {
-            bindings = <
-             &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans
-             &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans
-&bootloader  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &bootloader
-                             &trans  &trans  &trans    &trans  &trans  &trans
             >;
         };
     };
